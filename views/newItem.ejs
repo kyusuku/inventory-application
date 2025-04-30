@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <form action="/new/item" method="POST">
+      <label for="newMatchaGrade">Matcha Powder Grade: </label>
+      <input type="text" name="newMatchaGrade" id="newMatchaGrade" />
+      <label for="newMatchaName">Matcha Powder Name: </label>
+      <input type="text" name="newMatchaName" id="newMatchaName" />
+      <label for="newMatchaManufacturer">Manufacturer: </label>
+      <input
+        type="text"
+        name="newMatchaManufacturer"
+        id="newMatchaManufacturer"
+      />
+      <label for="newMatchaPrice">Price: </label>
+      <input type="text" name="newMatchaPrice" id="newMatchaPrice" />
+      <button type="submit">Submit</button>
+    </form>
+  </body>
+</html>

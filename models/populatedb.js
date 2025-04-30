@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS inventory (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
     category TEXT,
     item TEXT,
-    quantity INTEGER,
+    manufacturer TEXT,
     price BIGINT
 );
 `;
