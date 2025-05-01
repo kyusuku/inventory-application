@@ -7,14 +7,25 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
     <form action="/new/category" method="POST">
       <label for="newMatchaCategory">Matcha Powder Grade: </label>
-      <input type="text" name="newMatchaCategory" id="newMatchaCategory" />
+      <input
+        type="text"
+        name="newMatchaCategory"
+        id="newMatchaCategory"
+        required
+      />
       <label for="newMatchaCategoryDesc">Description: </label>
       <textarea
         name="newMatchaCategoryDesc"
         id="newMatchaCategoryDesc"
+        required
       ></textarea>
+      <label for="secretCode">Secret Code: </label>
+      <input type="text" id="secretCode" name="secretCode" />
       <button type="submit">Submit</button>
     </form>
   </body>

@@ -3,12 +3,21 @@ require("dotenv").config();
 const { Client } = require("pg");
 
 const SQL = `
+CREATE TABLE IF NOT EXISTS categories (
+  id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
+  category TEXT,
+  description TEXT
+);
+
 CREATE TABLE IF NOT EXISTS inventory (
     id INTEGER PRIMARY KEY GENERATED ALWAYS AS IDENTITY,
-    category TEXT,
+    category_id INTEGER,
     item TEXT,
     manufacturer TEXT,
-    price BIGINT
+    price BIGINT,
+    CONSTRAINT fk_category
+      FOREIGN KEY (category_id)
+      REFERENCES categories (id)
 );
 `;
 

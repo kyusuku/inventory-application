@@ -7,19 +7,30 @@
   </head>
   <body>
     <h1><%= title %></h1>
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
     <form action="/new/item" method="POST">
-      <label for="newMatchaGrade">Matcha Powder Grade: </label>
-      <input type="text" name="newMatchaGrade" id="newMatchaGrade" />
+      <% categories.forEach((row, i) => { %>
+      <label for="<%= row.category %>">
+        <input type="radio" id="<%= row.category %>" name="selectedCategory"
+        value="<%= row.category %>" <%= i === 0 ? "required" : "" %> /> <%=
+        row.category %> grade
+      </label>
+      <% }) %>
       <label for="newMatchaName">Matcha Powder Name: </label>
-      <input type="text" name="newMatchaName" id="newMatchaName" />
+      <input type="text" name="newMatchaName" id="newMatchaName" required />
       <label for="newMatchaManufacturer">Manufacturer: </label>
       <input
         type="text"
         name="newMatchaManufacturer"
         id="newMatchaManufacturer"
+        required
       />
       <label for="newMatchaPrice">Price: </label>
-      <input type="text" name="newMatchaPrice" id="newMatchaPrice" />
+      <input type="text" name="newMatchaPrice" id="newMatchaPrice" required />
+      <label for="secretCode">Secret Code: </label>
+      <input type="text" id="secretCode" name="secretCode" />
       <button type="submit">Submit</button>
     </form>
   </body>

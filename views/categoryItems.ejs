@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %> Grade Matcha</title>
+  </head>
+  <body>
+    <div>
+      <h1><%= title %> Grade</h1>
+      <form action="/delete/category/<%= title %>" method="GET">
+        <button type="submit">Delete Category</button>
+      </form>
+    </div>
+    <%= category.description %> <% items.forEach((item) => { %>
+    <div>
+      <%= item.item %> , <%= item.manufacturer %>, $<%= item.price/100 %>
+    </div>
+    <% }) %>
+  </body>
+</html>

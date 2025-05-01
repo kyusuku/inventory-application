@@ -7,5 +7,6 @@ const newRouter = require("./newRouter");
 indexRouter.get("/", indexController.getIndexPage);
 indexRouter.get("/items", indexController.getItemsPage);
 indexRouter.get("/new", newRouter);
+indexRouter.get("/:categoryName", indexController.getCategoryItemsPage);
 
 module.exports = indexRouter;

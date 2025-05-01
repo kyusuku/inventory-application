@@ -10,8 +10,11 @@
     <h1><%= title %></h1>
     <% items.forEach((item) => { %>
     <div>
-      <%= item.category %>, <%= item.item %> , <%= item.manufacturer %>, $<%=
-      item.price/100 %>
+      <%= item.category_name %>, <%= item.item %> , <%= item.manufacturer %>,
+      $<%= item.price/100 %>
+      <form action="/delete/item/<%= item.item %>" method="GET">
+        <button type="submit">x</button>
+      </form>
     </div>
     <% }) %>
   </body>

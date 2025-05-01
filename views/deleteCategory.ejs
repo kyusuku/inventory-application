@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Delete Category: <%= title %></h1>
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
+    <form action="/delete/category/<%= title %>" method="POST">
+      <label for="deleteCategoryPassword">Secret Code: </label>
+      <input
+        type="text"
+        id="deleteCategoryPassword"
+        name="deleteCategoryPassword"
+      />
+      <button type="submit">Confirm</button>
+    </form>
+  </body>
+</html>

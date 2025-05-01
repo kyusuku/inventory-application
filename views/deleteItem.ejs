@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%= title %></title>
+  </head>
+  <body>
+    <h1>Delete Item: <%= title %></h1>
+    <% if (error) { %>
+    <p style="color: red"><%= error %></p>
+    <% } %>
+    <form action="/delete/item/<%= title %>" method="POST">
+      <label for="deleteItemPassword">Secret Code: </label>
+      <input type="text" id="deleteItemPassword" name="deleteItemPassword" />
+      <button type="submit">Confirm</button>
+    </form>
+  </body>
+</html>
