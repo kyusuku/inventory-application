@@ -3,19 +3,43 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title><%= title %> Grade Matcha</title>
   </head>
   <body>
-    <div>
-      <h1><%= title %> Grade</h1>
+    <div class="wrapper">
+      <div>
+        <h1><%= title %> Grade</h1>
+      </div>
+      <div class="descCard"><%= category.description %></div>
+      <div class="grid">
+        <div class="itemRow head">Name</div>
+        <div class="itemRow head">Manufacturer</div>
+        <div class="itemRow head">Price</div>
+        <div class="fullRowSeparator"></div>
+        <% items.forEach((item) => { %>
+        <div class="itemRow"><%= item.item %></div>
+        <div class="itemRow"><%= item.manufacturer %></div>
+        <div class="itemRow relative">
+          $<%= item.price/100 %>
+          <form
+            action="/delete/item/<%= item.item %>"
+            method="GET"
+            class="deleteBtnAbs"
+          >
+            <button type="submit" class="button">
+              <span class="X"></span>
+              <span class="Y"></span>
+            </button>
+          </form>
+        </div>
+
+        <div class="fullRowSeparator"></div>
+        <% }) %>
+      </div>
       <form action="/delete/category/<%= title %>" method="GET">
-        <button type="submit">Delete Category</button>
+        <button type="submit" class="submitNewItemBtn">Delete Category</button>
       </form>
     </div>
-    <%= category.description %> <% items.forEach((item) => { %>
-    <div>
-      <%= item.item %> , <%= item.manufacturer %>, $<%= item.price/100 %>
-    </div>
-    <% }) %>
   </body>
 </html>

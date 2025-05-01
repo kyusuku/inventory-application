@@ -3,35 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <% if (error) { %>
-    <p style="color: red"><%= error %></p>
-    <% } %>
-    <form action="/new/item" method="POST">
-      <% categories.forEach((row, i) => { %>
-      <label for="<%= row.category %>">
-        <input type="radio" id="<%= row.category %>" name="selectedCategory"
-        value="<%= row.category %>" <%= i === 0 ? "required" : "" %> /> <%=
-        row.category %> grade
-      </label>
-      <% }) %>
-      <label for="newMatchaName">Matcha Powder Name: </label>
-      <input type="text" name="newMatchaName" id="newMatchaName" required />
-      <label for="newMatchaManufacturer">Manufacturer: </label>
-      <input
-        type="text"
-        name="newMatchaManufacturer"
-        id="newMatchaManufacturer"
-        required
-      />
-      <label for="newMatchaPrice">Price: </label>
-      <input type="text" name="newMatchaPrice" id="newMatchaPrice" required />
-      <label for="secretCode">Secret Code: </label>
-      <input type="text" id="secretCode" name="secretCode" />
-      <button type="submit">Submit</button>
-    </form>
+    <div class="wrapper">
+      <h1><%= title %></h1>
+      <% if (error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
+      <form action="/new/item" method="POST" class="newItemFormWrapper">
+        <div class="newItemRadio radio-inputs">
+          <% categories.forEach((row, i) => { %>
+          <label for="<%= row.category %>" class="radio">
+            <input type="radio" id="<%= row.category %>" name="selectedCategory"
+            class="radio" value="<%= row.category %>" <%= i === 0 ? "required" :
+            "" %> />
+            <span class="name"><%= row.category %> grade</span>
+          </label>
+          <% }) %>
+        </div>
+        <div class="newItemForm">
+          <div>
+            <label for="newMatchaName">Matcha Powder Name: </label>
+            <input
+              type="text"
+              name="newMatchaName"
+              id="newMatchaName"
+              required
+            />
+          </div>
+          <div>
+            <label for="newMatchaManufacturer">Manufacturer: </label>
+            <input
+              type="text"
+              name="newMatchaManufacturer"
+              id="newMatchaManufacturer"
+              required
+            />
+          </div>
+          <div>
+            <label for="newMatchaPrice">Price: </label>
+            <input
+              type="text"
+              name="newMatchaPrice"
+              id="newMatchaPrice"
+              required
+            />
+          </div>
+          <div>
+            <label for="secretCode">Secret Code: </label>
+            <input type="text" id="secretCode" name="secretCode" />
+          </div>
+          <button type="submit" class="submitNewItemBtn">Submit</button>
+        </div>
+      </form>
+    </div>
   </body>
 </html>

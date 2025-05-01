@@ -7,15 +7,34 @@
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <% items.forEach((item) => { %>
-    <div>
-      <%= item.category_name %>, <%= item.item %> , <%= item.manufacturer %>,
-      $<%= item.price/100 %>
-      <form action="/delete/item/<%= item.item %>" method="GET">
-        <button type="submit">x</button>
-      </form>
+    <div class="wrapper">
+      <h1><%= title %></h1>
+      <div class="gridAll">
+        <div class="itemRow head">Grade</div>
+        <div class="itemRow head">Name</div>
+        <div class="itemRow head">Manufacturer</div>
+        <div class="itemRow head">Price</div>
+        <div class="fullRowSeparator"></div>
+        <% items.forEach((item) => { %>
+        <div class="itemRow"><%= item.category_name %></div>
+        <div class="itemRow"><%= item.item %></div>
+        <div class="itemRow"><%= item.manufacturer %></div>
+        <div class="relative itemRow">
+          $<%= item.price/100 %>
+          <form
+            action="/delete/item/<%= item.item %>"
+            method="GET"
+            class="deleteBtnAbs"
+          >
+            <button type="submit" class="button">
+              <span class="X"></span>
+              <span class="Y"></span>
+            </button>
+          </form>
+        </div>
+        <div class="fullRowSeparator"></div>
+        <% }) %>
+      </div>
     </div>
-    <% }) %>
   </body>
 </html>

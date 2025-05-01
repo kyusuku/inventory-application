@@ -3,30 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/styles.css" />
     <title><%= title %></title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <% if (error) { %>
-    <p style="color: red"><%= error %></p>
-    <% } %>
-    <form action="/new/category" method="POST">
-      <label for="newMatchaCategory">Matcha Powder Grade: </label>
-      <input
-        type="text"
-        name="newMatchaCategory"
-        id="newMatchaCategory"
-        required
-      />
-      <label for="newMatchaCategoryDesc">Description: </label>
-      <textarea
-        name="newMatchaCategoryDesc"
-        id="newMatchaCategoryDesc"
-        required
-      ></textarea>
-      <label for="secretCode">Secret Code: </label>
-      <input type="text" id="secretCode" name="secretCode" />
-      <button type="submit">Submit</button>
-    </form>
+    <div class="wrapper">
+      <h1><%= title %></h1>
+      <% if (error) { %>
+      <p style="color: red"><%= error %></p>
+      <% } %>
+      <form action="/new/category" method="POST" class="newItemFormWrapper">
+        <div>
+          <label for="newMatchaCategory">Matcha Powder Grade: </label>
+          <input
+            type="text"
+            name="newMatchaCategory"
+            id="newMatchaCategory"
+            required
+          />
+        </div>
+        <div>
+          <label for="newMatchaCategoryDesc">Description: </label>
+          <input
+            type="text"
+            name="newMatchaCategoryDesc"
+            id="newMatchaCategoryDesc"
+            required
+          ></input>
+        </div>
+        <div>
+          <label for="secretCode">Secret Code: </label>
+          <input type="text" id="secretCode" name="secretCode" />
+        </div>
+        <button type="submit" class="submitNewItemBtn">Submit</button>
+      </form>
+    </div>
   </body>
 </html>

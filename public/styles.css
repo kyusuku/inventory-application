@@ -4,7 +4,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  font-family: "Classy Matcha", sans-serif;
+  text-decoration: none;
+  color: #2e3d2f;
 }
 
 body {
@@ -17,19 +18,6 @@ body {
   color: #2e3d2f;
 }
 
-body::before {
-  content: "";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: url("https://www.transparenttextures.com/patterns/leaf.png");
-  opacity: 0.08;
-  pointer-events: none;
-  z-index: 0;
-}
-
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -37,8 +25,320 @@ body::before {
   align-items: center;
   padding: 20px;
   min-height: 100dvh;
+  gap: 30px;
 }
 
 h1 {
   font-size: 6rem;
+  font-family: "Classy Matcha", sans-serif;
+}
+
+.buttonLinkContainer {
+  display: flex;
+  gap: 20px;
+}
+
+.buttonLink {
+  background-color: white;
+  padding: 16px 16px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform ease-out 0.2s;
+  will-change: transform;
+}
+
+.buttonLink:hover {
+  transform: scale(1.05);
+}
+
+.categoryContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.category {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  padding: 16px 32px;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform ease-out 0.2s;
+  will-change: transform;
+}
+
+.category:hover {
+  transform: scale(1.05);
+}
+
+.newItemFormWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 40px;
+}
+
+.newItemForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+input {
+  max-width: 190px;
+  height: 44px;
+  background-color: #05060f0a;
+  border-radius: 0.5rem;
+  padding: 0 1rem;
+  border: 2px solid transparent;
+  font-size: 1rem;
+  transition: border-color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s,
+    background 0.2s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #05060f99;
+  transition: color 0.3s cubic-bezier(0.25, 0.01, 0.25, 1) 0s;
+}
+
+input:hover,
+input:focus,
+.input-group:hover input {
+  outline: none;
+  border-color: #05060f;
+}
+
+.input-group:hover label,
+input:focus {
+  color: #05060fc2;
+}
+
+.radio-inputs {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  width: 300px;
+  font-size: 14px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all 0.15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #fff;
+  font-weight: 600;
+}
+
+.radio-inputs .radio:hover .name {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+.radio-inputs .radio input:checked + .name {
+  position: relative;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  animation: select 0.3s ease;
+}
+
+@keyframes select {
+  0% {
+    transform: scale(0.95);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.submitNewItemBtn {
+  appearance: none;
+  background-color: transparent;
+  border: 0.125em solid #1a1a1a;
+  border-radius: 0.9375em;
+  box-sizing: border-box;
+  color: #3b3b3b;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 3.75em;
+  min-width: 0;
+  outline: none;
+  padding: 1em 2.3em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  will-change: transform;
+}
+
+.submitNewItemBtn:disabled {
+  pointer-events: none;
+}
+
+.submitNewItemBtn:hover {
+  color: #fff;
+  background-color: #1a1a1a;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.submitNewItemBtn:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+
+.descCard {
+  box-sizing: border-box;
+  max-width: 50vw;
+  padding: 20px;
+  background: rgba(217, 217, 217, 0.58);
+  border: 1px solid white;
+  /* box-shadow: 12px 17px 51px rgba(0, 0, 0, 0.22); */
+  backdrop-filter: blur(6px);
+  border-radius: 17px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  font-weight: bolder;
+  color: black;
+}
+
+.descCard:hover {
+  border: 1px solid black;
+  transform: scale(1.05);
+}
+
+.descCard:active {
+  transform: scale(0.95) rotateZ(1.7deg);
+}
+
+.itemRow {
+  justify-self: center;
+}
+
+.fullRowSeparator {
+  grid-column: 1 / -1;
+  border-bottom: 2px solid #000000; /* your desired line style */
+}
+
+.head {
+  font-size: 1.3rem;
+  font-style: italic;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 30px;
+  row-gap: 30px;
+  background-color: #d4e8b0;
+  padding: 40px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.gridAll {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  column-gap: 30px;
+  row-gap: 30px;
+  background-color: #d4e8b0;
+  padding: 40px;
+  border-radius: 15px;
+  font-weight: bold;
+}
+
+.relative {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.deleteBtnAbs {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 0;
+}
+
+.button {
+  position: relative;
+  width: 2em;
+  height: 2em;
+  border: none;
+  background: rgba(180, 83, 107, 0.11);
+  border-radius: 5px;
+  transition: background 0.5s;
+}
+
+.X {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1.5px;
+  background-color: rgb(255, 255, 255);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.Y {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1em;
+  height: 1.5px;
+  background-color: #fff;
+  transform: translateX(-50%) rotate(-45deg);
+}
+
+.button:hover {
+  background-color: rgb(211, 21, 21);
+}
+
+.button:active {
+  background-color: rgb(130, 0, 0);
 }
